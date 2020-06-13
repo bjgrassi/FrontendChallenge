@@ -1,0 +1,13 @@
+<fieldset>
+  <legend>List of Competitors</legend>
+  <div class="card border-primary mb-3" style="max-width: 20rem;" *ngFor="let competitor of competitors">
+    <div class="card-body">
+      <h4 class="card-title">{{ competitor.name }}</h4>
+      <p class="card-text">
+        <button type="button" class="btn btn-primary" *ngIf="!competitor.isSelected" (click)="markAsSelected(competitor)">Select</button>
+        <button type="button" class="btn btn-success" *ngIf="competitor.isSelected" (click)="markAsCanceled(competitor)">Cancel</button>
+        <button type="button" class="btn btn-outline-danger" (click)="delete(competitor)">Delete</button>
+      </p>
+    </div>
+  </div>
+</fieldset>

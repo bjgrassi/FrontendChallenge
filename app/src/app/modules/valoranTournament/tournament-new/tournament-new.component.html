@@ -1,0 +1,24 @@
+<form class="margin-bottom" [formGroup]="form">
+  <fieldset>
+    <legend>Add New Competitor</legend>
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" placeholder="Enter your name" maxlength="30" formControlName="name">
+      <small *ngIf="form.controls.name.invalid && !form.controls.name.pristine">this field must be between 3 and 30 characters</small>
+    </div>
+    
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid" (click)="add()">Submit</button>
+  </fieldset>
+</form>
+
+<div [hidden]="!showMessage">
+  <div class="alert alert-dismissible alert-success">
+    <strong>Well done!</strong> 
+    You successfully registered for the championship!
+  </div>
+  <div class="alert alert-dismissible alert-secondary">
+    <strong>[invisible-to-competitor]</strong>
+      <div>Go to the list and start the tournament <a class="alert-link" routerLink="/tournament-list">here</a>.</div>
+    <strong>[/invisible-to-competitor]</strong>
+  </div>
+</div>

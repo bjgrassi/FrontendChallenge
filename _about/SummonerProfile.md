@@ -8,7 +8,7 @@ Perfil do Invocador
 **Endereço no LinkedIn:** https://www.linkedin.com/in/bruna-grassi/
 
 **Qual sua IDE favorita e por que:** 
-> VS Code, porque possui plugins que auxiliam no desenvolvimento, terminal integrado, é grátis e possui ótima qualidade.
+> VS Code, porque possui plugins que auxiliam no desenvolvimento, terminal integrado, é grátis e de ótima qualidade.
 
 **GULP, GRUNT?** 
 > Gulp. É mais completo e possui performance melhor. (Foi uma escolha de jogo rápido, tudo depende das necessidades do sistema)
