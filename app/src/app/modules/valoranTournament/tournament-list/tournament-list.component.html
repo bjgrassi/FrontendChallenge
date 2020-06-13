@@ -1,13 +1,71 @@
-<fieldset>
-  <legend>List of Competitors</legend>
-  <div class="card border-primary mb-3" style="max-width: 20rem;" *ngFor="let competitor of competitors">
-    <div class="card-body">
-      <h4 class="card-title">{{ competitor.name }}</h4>
-      <p class="card-text">
-        <button type="button" class="btn btn-primary" *ngIf="!competitor.isSelected" (click)="markAsSelected(competitor)">Select</button>
-        <button type="button" class="btn btn-success" *ngIf="competitor.isSelected" (click)="markAsCanceled(competitor)">Cancel</button>
-        <button type="button" class="btn btn-outline-danger" (click)="delete(competitor)">Delete</button>
-      </p>
+<form class="margin-bottom" [formGroup]="form">
+  <fieldset>
+    <legend>Add New Member</legend>
+    <div class="form-group">
+      <label>Name</label>
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Enter your name"
+        maxlength="30"
+        formControlName="name"
+      />
+      <small *ngIf="form.controls.name.invalid && !form.controls.name.pristine">
+        this field must be between 3 and 30 characters
+      </small>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="form.invalid"
+      (click)="add()"
+    >
+      Submit
+    </button>
+  </fieldset>
+</form>
+
+<div>
+  <legend>Select Your Team Members</legend>
+  <div class="row">
+    <div
+      class="col-lg-4 col-md-12"
+      *ngFor="let competitor of competitors"
+    >
+      <div class="text-white bg-secondary card-body mb-3">
+        <h4 class="card-title">
+          {{ competitor.name }} <i class="fa fa-check-circle text-success" *ngIf="competitor.isSelected"></i>
+        </h4>
+        <div class="row">
+          <p class="card-text col-lg-12">
+            <button
+              type="button"
+              class="btn btn-primary col-lg-5 col-md-12 mr-md-4 mb-3"
+              *ngIf="!competitor.isSelected"
+              (click)="markAsSelected(competitor)"
+            >
+            <i class="fa fa-check-circle"></i> Select
+            </button>
+            <button
+              type="button"
+              class="btn btn-warning col-lg-5 col-md-12 mr-md-4 mb-3"
+              *ngIf="competitor.isSelected"
+              (click)="markAsCanceled(competitor)"
+            >
+            <i class="fa fa-ban" aria-hidden="true"></i> Cancel
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-danger col-lg-5 col-md-12 mb-3"
+              (click)="delete(competitor)"
+            >
+            <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+            </button>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
-</fieldset>
+  <p [hidden]="competitors.length > 0">No competitors yet.</p>
+</div>

@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { TournamentListComponent } from './tournament-list/tournament-list.component';
-import { TournamentNewComponent } from './tournament-new/tournament-new.component';
 import { TournamentResultComponent } from './tournament-result/tournament-result.component';
 
 @NgModule({
@@ -15,12 +14,10 @@ import { TournamentResultComponent } from './tournament-result/tournament-result
   ],
   declarations: [
     TournamentListComponent,
-    TournamentNewComponent,
     TournamentResultComponent
   ],
   exports: [
     TournamentListComponent,
-    TournamentNewComponent,
     TournamentResultComponent
   ]
 })
