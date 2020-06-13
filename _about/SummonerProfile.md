@@ -1,9 +1,11 @@
 Perfil do Invocador
 ========================
 
-> **Nome completo:** Bruna Jacinto Grassi
-> **Data de nascimento:** 05/08/95
-> **Endereço no LinkedIn:** https://www.linkedin.com/in/bruna-grassi/
+**Nome completo:** Bruna Jacinto Grassi
+
+**Data de nascimento:** 05/08/95
+
+**Endereço no LinkedIn:** https://www.linkedin.com/in/bruna-grassi/
 
 **Qual sua IDE favorita e por que:** 
 > VS Code, porque possui plugins que auxiliam no desenvolvimento, terminal integrado, é grátis e possui ótima qualidade.
