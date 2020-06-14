@@ -2,13 +2,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './modules/home/home.component';
-import { TournamentListComponent } from './modules/valoranTournament/tournament-list/tournament-list.component';
-import { TournamentResultComponent } from './modules/valoranTournament/tournament-result/tournament-result.component';
+import { TournamentBattleComponent } from './modules/valoranTournament/tournament-battle/tournament-battle.component';
+import { TournamentTeamListComponent } from './modules/valoranTournament/tournament-team-list/tournament-team-list.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'tournament-list', component: TournamentListComponent },
-  { path: 'tournament-result', component: TournamentResultComponent },
+  { path: 'tournament-battle', component: TournamentBattleComponent },
+  { path: 'tournament-team-list', component: TournamentTeamListComponent },
   { path: '**', redirectTo: '' }
 ];
 

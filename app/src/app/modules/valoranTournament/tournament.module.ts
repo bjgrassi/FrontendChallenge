@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { TournamentListComponent } from './tournament-list/tournament-list.component';
-import { TournamentResultComponent } from './tournament-result/tournament-result.component';
+import { TournamentTeamListComponent } from './tournament-team-list/tournament-team-list.component';
+import { TournamentBattleComponent } from './tournament-battle/tournament-battle.component';
 
 @NgModule({
   imports: [
@@ -13,12 +13,12 @@ import { TournamentResultComponent } from './tournament-result/tournament-result
     ReactiveFormsModule
   ],
   declarations: [
-    TournamentListComponent,
-    TournamentResultComponent
+    TournamentTeamListComponent,
+    TournamentBattleComponent
   ],
   exports: [
-    TournamentListComponent,
-    TournamentResultComponent
+    TournamentTeamListComponent,
+    TournamentBattleComponent
   ]
 })
 export class TournamentModule { }

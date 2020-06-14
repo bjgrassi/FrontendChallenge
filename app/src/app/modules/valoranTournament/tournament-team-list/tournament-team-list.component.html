@@ -31,34 +31,34 @@
   <div class="row">
     <div
       class="col-lg-4 col-md-12"
-      *ngFor="let competitor of competitors"
+      *ngFor="let member of members"
     >
       <div class="text-white bg-secondary card-body mb-3">
         <h4 class="card-title">
-          {{ competitor.name }} <i class="fa fa-check-circle text-success" *ngIf="competitor.isSelected"></i>
+          {{ member.name }} <i class="fa fa-check-circle text-success" *ngIf="member.isSelected"></i>
         </h4>
         <div class="row">
           <p class="card-text col-lg-12">
             <button
               type="button"
               class="btn btn-primary col-lg-5 col-md-12 mr-md-4 mb-3"
-              *ngIf="!competitor.isSelected"
-              (click)="markAsSelected(competitor)"
+              *ngIf="!member.isSelected"
+              (click)="markAsSelected(member)"
             >
             <i class="fa fa-check-circle"></i> Select
             </button>
             <button
               type="button"
               class="btn btn-warning col-lg-5 col-md-12 mr-md-4 mb-3"
-              *ngIf="competitor.isSelected"
-              (click)="markAsCanceled(competitor)"
+              *ngIf="member.isSelected"
+              (click)="markAsCanceled(member)"
             >
             <i class="fa fa-ban" aria-hidden="true"></i> Cancel
             </button>
             <button
               type="button"
               class="btn btn-outline-danger col-lg-5 col-md-12 mb-3"
-              (click)="delete(competitor)"
+              (click)="delete(member)"
             >
             <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
             </button>
@@ -67,5 +67,14 @@
       </div>
     </div>
   </div>
-  <p [hidden]="competitors.length > 0">No competitors yet.</p>
+  <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]=""
+      [hidden]="members.length == 0"
+    >
+      Go to Battle
+    </button>
 </div>
+
+<h5 [hidden]="members.length > 0">No members yet.</h5>

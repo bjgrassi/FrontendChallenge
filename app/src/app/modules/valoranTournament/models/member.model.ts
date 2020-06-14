@@ -1,4 +1,4 @@
-export class Competitor {
+export class Member {
   constructor(
     public id: Number,
     public name: String,
