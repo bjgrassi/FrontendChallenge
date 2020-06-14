@@ -1,0 +1,18 @@
+.battle-margin {
+  margin-bottom: 70px;
+}
+
+@media (min-width: 992px) {
+  .battle-finals {
+    legend {
+      margin-bottom: 50px;
+    }
+    button:nth-last-child(1) {
+      margin-top: 130px;
+    }
+  }
+
+  .battle-winner {
+    margin-top: 100px;
+  }
+}

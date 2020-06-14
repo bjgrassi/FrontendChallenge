@@ -67,14 +67,16 @@
       </div>
     </div>
   </div>
-  <button
-      type="submit"
-      class="btn btn-primary"
-      [disabled]="qtdSelectedTeams != 4"
-      [hidden]="teams.length == 0"
-    >
-      Go to Battle
+  <a routerLink="/tournament-battle">
+    <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="qtdSelectedTeams != 4"
+        [hidden]="teams.length == 0"
+      >
+        Go to Battle
     </button>
+  </a>
 </div>
 
 <h5 [hidden]="teams.length > 0">No teams yet.</h5>
