@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { Member } from '../models/member.model';
+import { Team } from '../models/team.model';
 
 @Component({
   selector: 'app-tournament-team-list',
@@ -9,9 +9,10 @@ import { Member } from '../models/member.model';
   styleUrls: ['./tournament-team-list.component.scss']
 })
 export class TournamentTeamListComponent implements OnInit {
-  public members: Member[] = [];
+  public teams: Team[] = [];
   public form: FormGroup;
-  public qtdSelectedMembers: Number = 0;
+  public isSelected: boolean = false;
+  public qtdSelectedTeams: number;
 
   constructor(private fb: FormBuilder) { 
     this.form = this.fb.group({
@@ -25,25 +26,18 @@ export class TournamentTeamListComponent implements OnInit {
 
   ngOnInit() {
     this.load();
-  }
-
-  ngOnDestroy(): void {
-    this.members.splice(0, 1)
-    this.members.splice(1, 1)
-    this.members.splice(2, 1)
-    this.members.splice(3, 1)
-    
+    this.qtdSelectedTeams = this.getQtdSelectedTeams()
   }
 
   public load(): void {
-    const data = localStorage.getItem('members');
-    this.members = data ? JSON.parse(data) : [];
+    const data = localStorage.getItem('teams');
+    this.teams = data ? JSON.parse(data) : [];
   }
 
   public add(): void {
     const name = this.form.controls['name'].value;
-    const id = this.members.length + 1;
-    this.members.unshift(new Member(id, name, false))
+    const id = this.teams.length + 1;
+    this.teams.unshift(new Team(id, name, false))
     this.save()
     this.clear()
   }
@@ -52,26 +46,38 @@ export class TournamentTeamListComponent implements OnInit {
     this.form.reset()
   }
 
-  public markAsSelected(member: Member): void {
-    member.isSelected = true;
+  public markAsSelected(team: Team): void {
+    team.isSelected = true;
     this.save()
+    this.qtdSelectedTeams = this.getQtdSelectedTeams()
   }
 
-  public markAsCanceled(member: Member): void {
-    member.isSelected = false;
+  public markAsCanceled(team: Team): void {
+    team.isSelected = false;
     this.save()
+    this.qtdSelectedTeams = this.getQtdSelectedTeams()
   }
 
-  public delete(member: Member): void {
-    const index = this.members.indexOf(member);
+  public getQtdSelectedTeams() {
+    let qtd = 0;
+    for(let i=0; i<this.teams.length; i++) {
+      if(this.teams[i].isSelected) {
+        qtd++;
+      }
+    }
+    return qtd;
+  }
+
+  public delete(team: Team): void {
+    const index = this.teams.indexOf(team);
     if(index !== -1) {
-      this.members.splice(index, 1)
+      this.teams.splice(index, 1)
     }
     this.save()
   }
 
   public save(): void {
-    const data = JSON.stringify(this.members); //json to string
-    localStorage.setItem('members', data) // Application Tab
+    const data = JSON.stringify(this.teams); //json to string
+    localStorage.setItem('teams', data) // Application Tab
   }
 }
